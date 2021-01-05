@@ -1,0 +1,5 @@
+for i in {1..1000}; do ssh sysadmin@10.0.0.5; done
+this is a for loop, it creates 1000 attempts to login targeting one machine.
+
+while true; do ssh sysadmin@10.0.0.5; done
+This is while loop, it doesn't stop until you request it to stop with Ctrl C
