@@ -77,7 +77,8 @@ This ELK server is configured to monitor the following machines:
 10.0.0.5  10.0.0.6  
 We have installed the following Beats on these machines: Filebeat and Metricbeat
 
-These Beats allow us to collect the following information from each machine: Metricbeat helps with machine performance helps to alert the CPU stress to work more efficently. (stress test) Filebeat allows you to see changes within the log file, works with prospectors and 
+These Beats allow us to collect the following information from each machine: Metricbeat helps with machine performance helps to alert the CPU stress to work more efficently. (stress test) Filebeat allows you to see changes within the log file, harvesting which is resposible for reading the consent of a file. Filebeat provides input to Logstash. 
+
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
@@ -87,8 +88,23 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to http://[your.VM.IP]:5601/app/kibana to check that the installation worked as expected.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-curl https://raw.githubusercontent.com/JessiPolanco/Scripts/main/ansible/ELK/elk-playbook.yml
+To download the elk-playbook run:
 
+``` 
+curl https://raw.githubusercontent.com/JessiPolanco/Scripts/main/ansible/ELK/elk-playbook.yml
+```
+
+To update the ansible configuration file :
+
+```
+# default user to use for playbooks if user is not specified
+# (/usr/bin/ansible will use current user as default)
+remote_user = sysadmin
+```
+
+To update the host file :
+
+```
 [webservers]
 _ 10.0.0.4 ansible_python_interpreter=/usr/bin/python3
 _ 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
@@ -98,3 +114,4 @@ _ List the IP address of your ELK server
 _ There should only be one IP address
 _ [elkservers]
 _ 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+```
