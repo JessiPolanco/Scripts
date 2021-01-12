@@ -24,14 +24,10 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly responsive, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log file and system metrics.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -58,14 +54,18 @@ A summary of the access policies in place can be found in the table below.
 | VM 2     |      NO             | 10.0.0.1  10.1.0.5           |
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows for scalability 
+and redundancy. Scalability allows the user to deploy software to multiple servers at once while redunancy gives the user abilities to replace corrupted servers
+without compromising the web applications available.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+-  The playbook would give instructions to look for the {elkserver} group and target IP addresses and installs an instance of docker.io .
+-  Following the YAML file installs python3.pip.
+-  Next is the installations of docker python module.
+-  Expansion of memory by 262144 vm.max_map_count.
+-  Finally, download and install the imagine of the ELK container:sebp/elk:761 and publishing ports.
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+The following screenshot displays the result of running `docker ps` after successfully configuring the ELK container instance.
 
 **Note**: The following image link needs to be updated. Replace `docker_ps_output.png` with the name of your screenshot image file.  
 
