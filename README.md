@@ -63,7 +63,7 @@ The playbook implements the following tasks:
 -  Following the YAML file installs python3.pip.
 -  Next is the installations of docker python module.
 -  Expansion of memory by 262144 vm.max_map_count.
--  Finally, download and install the imagine of the ELK container:sebp/elk:761 and publishing ports.
+-  Finally, download and install the imagine of the ELK container:sebp/elk:761 and published_ports.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK container instance.
 
@@ -87,3 +87,14 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to http://[your.VM.IP]:5601/app/kibana to check that the installation worked as expected.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+curl https://raw.githubusercontent.com/JessiPolanco/Scripts/main/ansible/ELK/elk-playbook.yml
+
+[webservers]
+_ 10.0.0.4 ansible_python_interpreter=/usr/bin/python3
+_ 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+_ 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+
+_ List the IP address of your ELK server
+_ There should only be one IP address
+_ [elkservers]
+_ 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
